@@ -2,21 +2,36 @@
     ViewBag.Title = "Index";
 }
 
-<div class="Title">
-<h1>Есть идея!</h1>
-    </div>
-<div class="Hello">
-@if (@ViewBag.Name!=""){<h2>Hello @ViewBag.Name</h2>}
-                                                  else {<h2>Hello guest</h2>}
-</div>
+<div class="logo">
+    @if (@ViewBag.Name!=""){<p>Привет @ViewBag.Name</p>}
+                                                      else {<p>Доброго времени суток ;-)</p>}
+    <p>У нас есть <b>ИДЕЯ!</b></p>
+   </div>
 <div class="right-side">
     @foreach (var e in ViewBag.Events)
     {
-        <p>@e.What</p>
-        <p>@e.Where</p>
-        <p>@e.When</p>
+        <div class="event-block">
+            <table class="table">
+                <tr>
+                    <td>
 
-
+                        @e.What
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @e.Where
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @e.When
+                    </td>
+                </tr>
+                
+            
+            </table>
+        </div>
     }
 </div>
 <div class="left-side">

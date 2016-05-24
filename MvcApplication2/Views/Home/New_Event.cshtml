@@ -11,19 +11,17 @@
     <fieldset>
         @Html.HiddenFor(m => m.Id)
         <p>
-            @Html.LabelFor(m=>m.What, "Название мероприятия")
+            @Html.LabelFor(m=>m.What, "Что?")
             <br />
             @Html.EditorFor(m => m.What)
         </p>
         <p>
-            @Html.LabelFor(m => m.Where, "Описание")
+            @Html.LabelFor(m => m.Where, "Где?")
             <br />
             @Html.EditorFor(m => m.Where)
         </p>
         <p>
-            @{Html.ValidateFor(m => m.When);
-              Html.ValidationMessageFor(m => m.When, "тип дата");}
-            @Html.LabelFor(m => m.When, "Место мероприятия")
+            @Html.LabelFor(m => m.When, "Когда?")
             @Html.ValidationMessageFor(m => m.When, "тип дата")
             <br />
             @Html.EditorFor(m => m.When)

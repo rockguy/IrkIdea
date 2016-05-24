@@ -9,15 +9,14 @@ header, footer, nav, section {
     display: block;
 }
 
-
-.title {
-float:left;
-height:auto;
-width:auto;
+div {
+word-wrap:normal;
+text-align:center;
 }
 
-.hello {
+.logo {
 float:left;
+font-size:medium;
 }
 .left-side {
 float:left;
@@ -29,6 +28,16 @@ float:right;
 width:10%;
 }
 
+
+.event-block {
+margin:5px;
+}
+
+table.table {
+width:20%;
+border:10px;
+border-color:red;
+}
 
 .up-box {
 margin-top:5%;
