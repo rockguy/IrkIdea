@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Index</h1>
+@if (@ViewBag.Name!=""){<h2>Hello @ViewBag.Name</h2>}
+                                                  else {<h2>Hello guest</h2>}
+
+<div class="right-side">
+    @foreach (var e in ViewBag.Events)
+    {
+        <p>@e.What</p>
+        <p>@e.Where</p>
+        <p>@e.When</p>
+
+
+    }
+</div>
+<div class="left-side">
+    <div class="up-box">
+        <div id="what" class="whatButton">
+            <input type="button" class="button" value="What?" onclick="" id="what_button">
+        </div>
+    
+        <div id="where" class="whereButton">
+            <input type="button" class="button" value="Where?" onclick="" id="what_button">
+        </div>
+    </div>
+    <div id="what" class="newButton">
+        @using (Html.BeginForm("New_Event", "Home", FormMethod.Get))
+        {
+            <input type="submit" class="button"/>
+        }
+        
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <input type="submit" value="logoff" class="button" />
+        }
+        
+    </div>
+</div>
+
