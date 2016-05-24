@@ -25,6 +25,7 @@ namespace IrkIdea.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult New_Event()
         {
             return View();

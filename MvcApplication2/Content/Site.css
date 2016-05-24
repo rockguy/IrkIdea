@@ -2,13 +2,23 @@
     font-size: .85em;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     color: #232323;
-    background-color: orange;
+    background-color: lightgreen;
 }
 
 header, footer, nav, section {
     display: block;
 }
 
+
+.title {
+float:left;
+height:auto;
+width:auto;
+}
+
+.hello {
+float:left;
+}
 .left-side {
 float:left;
 width:90%;
