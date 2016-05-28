@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace IrkIdea
+namespace Queste
 {
     public class BundleConfig
     {

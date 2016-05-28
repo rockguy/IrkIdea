@@ -4,10 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 
-namespace IrkIdea.Models
+namespace Queste.Models
 {
     public class Context:DbContext
     {
-        public DbSet<UserEvent> UsersEvents { get; set; }
+        public DbSet<Quest> UsersEvents { get; set; }
     }
 }

@@ -5,7 +5,7 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 
  
-namespace IrkIdea.Models
+namespace Queste.Models
 {
     public class LogOnModel
     {
@@ -45,4 +45,6 @@ namespace IrkIdea.Models
         [Compare("Password", ErrorMessage = "Пароли не совпадают.")]
         public string ConfirmPassword { get; set; }
     }
+
+    
 }

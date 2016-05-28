@@ -9,7 +9,7 @@
     <ProjectGuid>{070C7B04-FEC3-44C8-A5B7-65A45C78AF03}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IrkIdea.Tests</RootNamespace>
+    <RootNamespace>Queste.Tests</RootNamespace>
     <AssemblyName>MvcApplication2.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

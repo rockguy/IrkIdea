@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Queste.Models;
 using System.Web.Security;
-using IrkIdea.Models;
-
-namespace IrkIdea.Controllers
+using Queste.Providers;
+ 
+namespace Queste.Controllers
 {
     [AllowAnonymous]
     public class AccountController : Controller
@@ -15,7 +14,6 @@ namespace IrkIdea.Controllers
         {
             return View();
         }
-
         [HttpPost]
         public ActionResult Login(LogOnModel model, string returnUrl)
         {
@@ -40,29 +38,28 @@ namespace IrkIdea.Controllers
             }
             return View(model);
         }
-
         public ActionResult LogOff()
         {
             FormsAuthentication.SignOut();
+ 
             return RedirectToAction("Login", "Account");
         }
-
+ 
         public ActionResult Register()
         {
             return View();
         }
-
+ 
         [HttpPost]
         public ActionResult Register(RegisterModel model)
         {
             if (ModelState.IsValid)
             {
-                MembershipCreateStatus createStatus;
-                Membership.CreateUser(model.UserName, model.Password, model.Email, passwordQuestion: null, passwordAnswer: null, isApproved: true, providerUserKey: null, status: out createStatus);
-
-                if (createStatus == MembershipCreateStatus.Success)
+                MembershipUser membershipUser = ((CustomMembershipProvider)Membership.Provider).CreateUser(model.Email, model.Password);
+ 
+                if (membershipUser != null)
                 {
-                    FormsAuthentication.SetAuthCookie(model.UserName, false);
+                    FormsAuthentication.SetAuthCookie(model.Email, false);
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -70,7 +67,6 @@ namespace IrkIdea.Controllers
                     ModelState.AddModelError("", "Ошибка при регистрации");
                 }
             }
-
             return View(model);
         }
     }

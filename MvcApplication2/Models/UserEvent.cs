@@ -4,18 +4,22 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using System.Data.Metadata;
+using System.ComponentModel.DataAnnotations;
+using Queste.Models;
 
 
-namespace IrkIdea.Models
+namespace Queste.Models
 {
-    public class UserEvent:DbContext
+    public class Quest
     {
-        
+        [Key]
         public int Id { get; set; }
-        public string What { get; set; }
-        public string Where { get; set; }
-        public DateTime When { get; set; }
-        public DateTime DateOfCreating { get; set; }
+        [Required]
+        public string Owner { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string Answear { get; set; }
+        public User User { get; set; }
 
 
     }

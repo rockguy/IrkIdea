@@ -4,11 +4,11 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using IrkIdea.Models;
+using Queste.Models;
 using System.Data;
 
 
-namespace IrkIdea.Controllers
+namespace Queste.Controllers
 {
     public class HomeController : Controller
     {
@@ -23,7 +23,7 @@ namespace IrkIdea.Controllers
             ViewBag.Name = HttpContext.User.Identity.Name;
             return View();
         }
-
+/*
         [HttpGet]
         [Authorize]
         public ActionResult New_Event()
@@ -31,13 +31,28 @@ namespace IrkIdea.Controllers
             return View();
         }
         [HttpPost]
-        public string New_Event(UserEvent Ue)
+        public string New_Event(Quest Ue)
         {
             Ue.DateOfCreating = DateTime.Now;
             db.Entry(Ue).State = EntityState.Added;
             db.SaveChanges();
             return "Nice job";
         }
-       
+  */
+        [Authorize(Roles = "admin")]
+        public string ViewRole()
+        {
+            return "Ваша роль: Администратор";
+        }
+        public string ViewProfile()
+        {
+            HttpContext.Profile["FirstName"] = "Vova";
+            HttpContext.Profile["LastName"] = "Pupkin";
+            HttpContext.Profile.SetPropertyValue("Age", 28);
+
+            return "Имя Фамилия: " + HttpContext.Profile["FirstName"].ToString() +
+                " " + HttpContext.Profile["LastName"].ToString() + " возраст: " +
+                HttpContext.Profile["Age"].ToString();
+        }
     }
 }
