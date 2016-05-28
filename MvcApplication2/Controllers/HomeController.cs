@@ -14,14 +14,25 @@ namespace Queste.Controllers
     {
         
         Context db = new Context();
+        UserContext UserDb = new UserContext();
         
        
         public ActionResult Index()
-        {
-         
-            ViewBag.Events = db.UsersEvents;
+        {           
             ViewBag.Name = HttpContext.User.Identity.Name;
+            ViewBag.Role = UserDb.Roles;
             return View();
+        }
+        [HttpGet]
+        public ActionResult New_Quest()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult New_Quest(Quest quest)
+        {
+            
+            return View("Index");
         }
 /*
         [HttpGet]
@@ -46,10 +57,9 @@ namespace Queste.Controllers
         }
         public string ViewProfile()
         {
-            HttpContext.Profile["FirstName"] = "Vova";
-            HttpContext.Profile["LastName"] = "Pupkin";
-            HttpContext.Profile.SetPropertyValue("Age", 28);
-
+            HttpContext.Profile["FirstName"] = HttpContext.User.Identity.Name;
+            
+           
             return "Имя Фамилия: " + HttpContext.Profile["FirstName"].ToString() +
                 " " + HttpContext.Profile["LastName"].ToString() + " возраст: " +
                 HttpContext.Profile["Age"].ToString();

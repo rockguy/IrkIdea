@@ -5,49 +5,18 @@
 <div class="logo">
     @if (@ViewBag.Name!=""){<p>Привет @ViewBag.Name</p>}
                                                       else {<p>Доброго времени суток ;-)</p>}
-    <p>У нас есть <b>ИДЕЯ!</b></p>
+    <p>У нас есть <b>ИДЕЯ! </b></p>
    </div>
-<div class="right-side">
-    @foreach (var e in ViewBag.Events)
-    {
-        <div class="event-block">
-            <table class="table">
-                <tr>
-                    <td>
+@foreach (var t in ViewBag.Role)
+{ 
+    @t.id <br>
+    @t.Name
+}
 
-                        @e.What
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @e.Where
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @e.When
-                    </td>
-                </tr>
-                
-            
-            </table>
-        </div>
-    }
-</div>
-<div class="left-side">
-    <div class="up-box">
-        <div id="what" class="whatButton">
-            <input type="button" class="button" value="Что сделать?" onclick="" id="what_button">
-        </div>
-    
-        <div id="where" class="whereButton">
-            <input type="button" class="button" value="Куда пойти?" onclick="" id="what_button">
-        </div>
-    </div>
     <div id="what" class="newButton">
-        @using (Html.BeginForm("New_Event", "Home", FormMethod.Get))
+        @using (Html.BeginForm("New_Quest", "Home", FormMethod.Get))
         {
-            <input type="submit" value="Создать событие!" class="button"/>
+            <input type="submit" value="Создать Квест!" class="button"/>
         }
         
         @using (Html.BeginForm("LogOff", "Account", FormMethod.Post))

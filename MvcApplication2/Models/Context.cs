@@ -8,6 +8,6 @@ namespace Queste.Models
 {
     public class Context:DbContext
     {
-        public DbSet<Quest> UsersEvents { get; set; }
+        public DbSet<Quest> Quests { get; set; }
     }
 }

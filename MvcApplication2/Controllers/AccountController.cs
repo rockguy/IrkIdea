@@ -55,11 +55,11 @@ namespace Queste.Controllers
         {
             if (ModelState.IsValid)
             {
-                MembershipUser membershipUser = ((CustomMembershipProvider)Membership.Provider).CreateUser(model.Email, model.Password);
+                MembershipUser membershipUser = ((CustomMembershipProvider)Membership.Provider).CreateUser(model.UserName, model.Email, model.Password);
  
                 if (membershipUser != null)
                 {
-                    FormsAuthentication.SetAuthCookie(model.Email, false);
+                    FormsAuthentication.SetAuthCookie(model.UserName, false);
                     return RedirectToAction("Index", "Home");
                 }
                 else
