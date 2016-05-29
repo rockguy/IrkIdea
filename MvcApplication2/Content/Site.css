@@ -1,14 +1,39 @@
 ﻿body {
     font-size: .85em;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+   text-decoration-color:white;
     color: #232323;
-    background-color: lightgreen;
+    background-color: darkslategrey;
 }
 
-header, footer, nav, section {
+footer, nav, section {
     display: block;
 }
+header{
+display:table;
+width:100%;
+background-color:slategrey;
+min-height:100px;
 
+}
+    header div {
+    float:left;
+    width:50%;
+    }
+
+
+    header div div {
+      margin-top:10px;
+    margin-right:10px;  
+    float:right;
+    display:inline-block;
+    width:auto;
+    font-size:x-large;
+    vertical-align:bottom;
+    
+    }
+
+   
 div {
 word-wrap:normal;
 text-align:center;
@@ -57,29 +82,7 @@ height:100px;
 background-color:black;
 }
 
-.whatButton {
-    float:left;
-width:20%;
-height:100%;
-background-color:blue;
-}
 
-.whereButton {
-    float:right;
-align-items:center;
-
-
-width:20%;
-height:100%;
-background-color:lightpink;
-}
-.newButton {
-margin-left:30%;
-margin-top:25%;
-width:40%;
-height:100%;
-background-color:lightpink;
-}
 
 .button {
     margin:auto;

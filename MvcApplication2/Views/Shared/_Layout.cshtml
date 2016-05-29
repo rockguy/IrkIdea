@@ -8,6 +8,32 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+    <header class="ui-widget-header">
+        <div class="left-header">
+            <H1>ТвойКвест!</H1>
+        </div>
+        <div class="right-header">
+            Hello guest
+            <div>
+                @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+                {
+                    <input type="submit" value="Домашняя" class="button" />
+                }
+            </div>
+            <div>
+                @using (Html.BeginForm("New_Quest", "Home", FormMethod.Get))
+                {
+                    <input type="submit" value="Создать Квест!" class="button" />
+                }
+            </div>
+            <div>
+                @using (Html.BeginForm("List_Of_Quests", "Home", FormMethod.Get))
+                {
+                    <input type="submit" value="Квесты" class="button" />
+                }
+            </div>
+            </divright>
+</header>
     @RenderBody()
 
     @Scripts.Render("~/bundles/jquery")

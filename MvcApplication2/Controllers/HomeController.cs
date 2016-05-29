@@ -13,43 +13,55 @@ namespace Queste.Controllers
     public class HomeController : Controller
     {
         
-        Context db = new Context();
-        UserContext UserDb = new UserContext();
+        UserContext db = new UserContext();
         
-       
+               
         public ActionResult Index()
         {           
             ViewBag.Name = HttpContext.User.Identity.Name;
-            ViewBag.Role = UserDb.Roles;
+            
             return View();
         }
+
         [HttpGet]
+        [Authorize]
         public ActionResult New_Quest()
         {
             return View();
         }
+        
         [HttpPost]
         public ActionResult New_Quest(Quest quest)
         {
-            
+            quest.Owner = HttpContext.User.Identity.Name;
+            quest.DateOfCreation = DateTime.Now;
+            db.Entry(quest).State = EntityState.Added;
+            db.SaveChanges();
             return View("Index");
         }
-/*
+        
         [HttpGet]
-        [Authorize]
-        public ActionResult New_Event()
+        public ActionResult List_Of_Quests() 
         {
-            return View();
+            var quests = from q in db.Quests
+                         select q;
+
+            List<SelectListItem> items = new List<SelectListItem>();
+            
+            
+foreach (var t in db.TypeOfQuest)
+            {
+                items.Add(new SelectListItem { Text = t.Title, Value = Convert.ToString(t.Id) });
+            }
+            
+            ViewData["QuestTypes"] = items;
+            
+            return View(quests);
         }
-        [HttpPost]
-        public string New_Event(Quest Ue)
-        {
-            Ue.DateOfCreating = DateTime.Now;
-            db.Entry(Ue).State = EntityState.Added;
-            db.SaveChanges();
-            return "Nice job";
-        }
-  */
+        
+        
+
+
         [Authorize(Roles = "admin")]
         public string ViewRole()
         {

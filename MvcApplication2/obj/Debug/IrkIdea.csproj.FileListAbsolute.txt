@@ -2,7 +2,6 @@ C:\Users\irk\documents\visual studio 2013\Projects\MvcApplication2\MvcApplicatio
 C:\Users\irk\documents\visual studio 2013\Projects\MvcApplication2\MvcApplication2\bin\MvcApplication2.dll
 C:\Users\irk\documents\visual studio 2013\Projects\MvcApplication2\MvcApplication2\bin\MvcApplication2.pdb
 C:\Users\irk\documents\visual studio 2013\Projects\MvcApplication2\MvcApplication2\bin\Antlr3.Runtime.dll
-C:\Users\irk\documents\visual studio 2013\Projects\MvcApplication2\MvcApplication2\bin\EntityFramework.dll
 C:\Users\irk\documents\visual studio 2013\Projects\MvcApplication2\MvcApplication2\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\irk\documents\visual studio 2013\Projects\MvcApplication2\MvcApplication2\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
 C:\Users\irk\documents\visual studio 2013\Projects\MvcApplication2\MvcApplication2\bin\Newtonsoft.Json.dll
@@ -14,7 +13,6 @@ C:\Users\irk\documents\visual studio 2013\Projects\MvcApplication2\MvcApplicatio
 C:\Users\irk\documents\visual studio 2013\Projects\MvcApplication2\MvcApplication2\bin\System.Web.WebPages.dll
 C:\Users\irk\documents\visual studio 2013\Projects\MvcApplication2\MvcApplication2\bin\System.Web.WebPages.Razor.dll
 C:\Users\irk\documents\visual studio 2013\Projects\MvcApplication2\MvcApplication2\bin\WebGrease.dll
-C:\Users\irk\documents\visual studio 2013\Projects\MvcApplication2\MvcApplication2\bin\EntityFramework.xml
 C:\Users\irk\documents\visual studio 2013\Projects\MvcApplication2\MvcApplication2\bin\Newtonsoft.Json.xml
 C:\Users\irk\documents\visual studio 2013\Projects\MvcApplication2\MvcApplication2\bin\System.Web.Mvc.xml
 C:\Users\irk\documents\visual studio 2013\Projects\MvcApplication2\MvcApplication2\bin\System.Web.Razor.xml
@@ -24,3 +22,5 @@ C:\Users\irk\documents\visual studio 2013\Projects\MvcApplication2\MvcApplicatio
 C:\Users\irk\documents\visual studio 2013\Projects\MvcApplication2\MvcApplication2\obj\Debug\IrkIdea.csprojResolveAssemblyReference.cache
 C:\Users\irk\documents\visual studio 2013\Projects\MvcApplication2\MvcApplication2\obj\Debug\MvcApplication2.dll
 C:\Users\irk\documents\visual studio 2013\Projects\MvcApplication2\MvcApplication2\obj\Debug\MvcApplication2.pdb
+C:\Users\irk\Documents\Visual Studio 2013\Projects\MvcApplication2\MvcApplication2\obj\Debug\Queste.Migrations.First.resources
+C:\Users\irk\Documents\Visual Studio 2013\Projects\MvcApplication2\MvcApplication2\obj\Debug\IrkIdea.csproj.GenerateResource.Cache

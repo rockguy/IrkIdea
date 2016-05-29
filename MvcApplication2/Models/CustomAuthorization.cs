@@ -12,12 +12,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Queste.Models
 {
-    public class UserContext : DbContext
-    {
-        public DbSet<User> Users { get; set; }
-        public DbSet<Role> Roles { get; set; }
-        public DbSet<Profile> Profiles { get; set; }
-    }
+ 
 
     public class User
     {

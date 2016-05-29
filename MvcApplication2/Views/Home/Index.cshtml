@@ -7,11 +7,7 @@
                                                       else {<p>Доброго времени суток ;-)</p>}
     <p>У нас есть <b>ИДЕЯ! </b></p>
    </div>
-@foreach (var t in ViewBag.Role)
-{ 
-    @t.id <br>
-    @t.Name
-}
+
 
     <div id="what" class="newButton">
         @using (Html.BeginForm("New_Quest", "Home", FormMethod.Get))
