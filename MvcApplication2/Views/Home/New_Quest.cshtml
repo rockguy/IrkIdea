@@ -18,6 +18,13 @@
 
         </div>
         
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Type)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.Type, ViewData["QuestTypes"] as List<SelectListItem>)
+            @Html.ValidationMessageFor(model => model.Type)
+        </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Title)

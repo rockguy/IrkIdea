@@ -35,6 +35,15 @@ namespace Queste.Controllers
         [Authorize]
         public ActionResult New_Quest()
         {
+
+            List<SelectListItem> items = new List<SelectListItem>();
+
+            foreach (var t in db.TypeOfQuest)
+            {
+                items.Add(new SelectListItem { Text = t.Title});
+            }
+
+            ViewData["QuestTypes"] = items;
             return View();
         }
         
@@ -53,15 +62,6 @@ namespace Queste.Controllers
         {
             var  quests = from q in db.Quests
                              select q;
-            List<SelectListItem> items = new List<SelectListItem>();
-                       
-            foreach (var t in db.TypeOfQuest)
-            {
-                items.Add(new SelectListItem { Text = t.Title, Value = Convert.ToString(t.Id) });
-            }
-            
-            ViewData["QuestTypes"] = items;
-            
             return View(quests);
         }
 
