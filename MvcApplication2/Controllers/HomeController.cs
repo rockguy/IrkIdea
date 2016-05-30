@@ -104,7 +104,7 @@ namespace Queste.Controllers
             }
             else {
                 ViewBag.Message = "Вы ошиблись... Попробуйте снова ;-)";
-                return Redirect("FalseAnswear");
+                return Redirect("FalseAnswear"); 
             }
         }
         
