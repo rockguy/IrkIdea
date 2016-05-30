@@ -10,29 +10,80 @@
 <body>
     <header class="ui-widget-header">
         <div class="left-header">
-            <H1>ТвойКвест!</H1>
+            <H1>YOUR QUEST!</H1>
         </div>
         <div class="right-header">
-            Hello guest
-            <div>
-                @using (Html.BeginForm("Index", "Home", FormMethod.Get))
-                {
-                    <input type="submit" value="Домашняя" class="button" />
-                }
+            <table>
+                <tr>
+                    <td>
+                        <div>
+                            @if (Context.User.Identity.IsAuthenticated)
+                            {
+                                <div>
+                                    @using (Html.BeginForm())
+                                    {
+                                    @Html.AntiForgeryToken()
+                                            <input type="submit" value="Привет @Context.User.Identity.Name" class="button" />
+                                    }
+                                </div>
+                                
+                                <div>
+                                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <input type="submit" value="Выйти" class="button" />
+                                    }
+                            </div>
+                            }
+                            @if (!Context.User.Identity.IsAuthenticated)
+                            {
+                                <div>
+                                    <div>
+                                        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <input type="submit" value="Логин" class="button" />
+                                        }
+                                    </div>
+                                    <div>
+                                        @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <input type="submit" value="Регистрация" class="button" />
+                                        }
+                                    </div>
+
+                                </div>
+                            }
+                            <div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+                            {
+                                <input type="submit" value="Домашняя" class="button" />
+                            }
+                        </div>
+                        <div>
+                            @using (Html.BeginForm("New_Quest", "Home", FormMethod.Get))
+                            {
+                                <input type="submit" value="Создать Квест!" class="button" />
+                            }
+                        </div>
+                        <div>
+                            @using (Html.BeginForm("List_Of_Quests", "Home", FormMethod.Get))
+                            {
+                                <input type="submit" value="Квесты" class="button" />
+                            }
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
             </div>
-            <div>
-                @using (Html.BeginForm("New_Quest", "Home", FormMethod.Get))
-                {
-                    <input type="submit" value="Создать Квест!" class="button" />
-                }
-            </div>
-            <div>
-                @using (Html.BeginForm("List_Of_Quests", "Home", FormMethod.Get))
-                {
-                    <input type="submit" value="Квесты" class="button" />
-                }
-            </div>
-            </divright>
+                        
 </header>
     @RenderBody()
 

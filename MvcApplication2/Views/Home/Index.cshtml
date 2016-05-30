@@ -2,25 +2,21 @@
     ViewBag.Title = "Index";
 }
 
-<div class="logo">
-    @if (@ViewBag.Name!=""){<p>Привет @ViewBag.Name</p>}
-                                                      else {<p>Доброго времени суток ;-)</p>}
-    <p>У нас есть <b>ИДЕЯ! </b></p>
-   </div>
-
-
-    <div id="what" class="newButton">
-        @using (Html.BeginForm("New_Quest", "Home", FormMethod.Get))
+<div class="left-side">
+    <div>
+        @foreach (var l in ViewBag.Decription)
         {
-            <input type="submit" value="Создать Квест!" class="button"/>
+            @l <br> 
         }
-        
-        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post))
-        {
-            @Html.AntiForgeryToken()
-            <input type="submit" value="logoff" class="button" />
-        }
-        
     </div>
 </div>
-
+<div class="right-side">
+    <div>
+        <ul> 
+        @foreach (var t in ViewBag.Types)
+        {
+            <li>@t.Title  
+        }
+            </ul>
+    </div>
+</div>

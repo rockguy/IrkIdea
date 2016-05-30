@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using Queste.Models;
 using System.Data;
+using System.IO;
 
 
 namespace Queste.Controllers
@@ -19,7 +20,9 @@ namespace Queste.Controllers
         public ActionResult Index()
         {           
             ViewBag.Name = HttpContext.User.Identity.Name;
-            
+            ViewBag.Decription = System.IO.File.ReadAllLines(Server.MapPath("\\Content\\Text\\HelloGuest.txt"));
+            ViewBag.Types = from t in db.TypeOfQuest
+                            select t.Title;
             return View();
         }
 

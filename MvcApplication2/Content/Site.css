@@ -9,11 +9,12 @@
 footer, nav, section {
     display: block;
 }
+
 header{
 display:table;
 width:100%;
 background-color:slategrey;
-min-height:100px;
+
 
 }
     header div {
@@ -29,11 +30,45 @@ min-height:100px;
     display:inline-block;
     width:auto;
     font-size:x-large;
+    font-family:'Bookman Old Style';
     vertical-align:bottom;
     
     }
+div.left-header h1 {
+padding-left:20px;
+font-family:'Bookman Old Style';
 
-   
+}
+table {
+width:100%;
+}
+td div {
+    vertical-align:central;
+    display:inline-block;
+    width:auto;
+    float:right;
+    margin-left:10px;
+    width:auto;
+
+}
+td div div {
+vertical-align:middle;
+width:auto;
+float:left;
+margin-left:10px;
+width:auto;
+font-size:x-large;
+font-style:normal;
+}
+
+input.button {
+font-size:x-large;
+width:auto;
+padding:5px;
+font-family:'Bookman Old Style';
+font-style:normal;
+}
+
 div {
 word-wrap:normal;
 text-align:center;
@@ -46,6 +81,16 @@ font-size:medium;
 .left-side {
 float:left;
 width:90%;
+}
+
+div.left-side div {
+background-color:grey;
+font-size:xx-large;
+width:60%;
+margin-left:5%;
+margin-top:10px;
+text-align:center;
+padding:20px;
 }
 
 .right-side {
@@ -98,8 +143,8 @@ background-color:black;
 }
 
 h1 {
-    text-align:center;
-    color:lightblue;
+    text-align:left;
+    font-size:60px;
 }
 
 /* Styles for basic forms
