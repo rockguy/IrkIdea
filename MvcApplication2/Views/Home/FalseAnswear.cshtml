@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "TrueAnswear";
+}
+
+<div class="central-side">
+    <div>
+        <h1>@ViewBag.Message</h1>
+    </div>
+    <div>@Html.ActionLink("Домой", "Index", "Home")</div>
+    <div>@Html.ActionLink("К списку квестов", "List_Of_Quests", "Home")</div>
+    <div>@Html.ActionLink("Попробовать еще раз?", Request.UrlReferrer.ToString(), "Home")</div>
+</div>

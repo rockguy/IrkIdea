@@ -80,13 +80,13 @@ font-size:medium;
 }
 .left-side {
 float:left;
-width:90%;
+width:60%;
 }
 
 div.left-side div {
 background-color:grey;
 font-size:xx-large;
-width:60%;
+width:100%;
 margin-left:5%;
 margin-top:10px;
 text-align:center;
@@ -95,9 +95,39 @@ padding:20px;
 
 .right-side {
 float:right;
-width:10%;
+width:30%;
 }
 
+div.right-side div {
+text-align:center;
+font-size:xx-large;
+width:100%;
+background-color:dimgray;
+
+}
+
+div.central-side{
+    width:90%;
+    margin-left:5%;
+    
+    background-color:white;
+}
+    div.central-side table {
+    border:solid black 3px;
+    
+    }
+
+table tr th {
+    text-align:center;
+font-size:xx-large;
+font-family:'Bookman Old Style';
+}
+
+table tr td {
+text-align:center;
+font-size:x-large;
+font-family:'Bookman Old Style';
+}
 
 .event-block {
 margin:5px;
@@ -145,6 +175,12 @@ background-color:black;
 h1 {
     text-align:left;
     font-size:60px;
+}
+
+h3 {
+text-align:center;
+color:red;
+font-size:x-large;
 }
 
 /* Styles for basic forms

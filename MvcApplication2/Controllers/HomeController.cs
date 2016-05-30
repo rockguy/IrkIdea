@@ -15,14 +15,19 @@ namespace Queste.Controllers
     {
         
         UserContext db = new UserContext();
-        
+
+        public IQueryable<TypeOfQuest> GetTypes() { 
+            return from t in db.TypeOfQuest
+                            select t;
+        }
                
         public ActionResult Index()
         {           
             ViewBag.Name = HttpContext.User.Identity.Name;
             ViewBag.Decription = System.IO.File.ReadAllLines(Server.MapPath("\\Content\\Text\\HelloGuest.txt"));
-            ViewBag.Types = from t in db.TypeOfQuest
-                            select t.Title;
+            ViewData["Types"] = GetTypes();
+
+       
             return View();
         }
 
@@ -40,19 +45,17 @@ namespace Queste.Controllers
             quest.DateOfCreation = DateTime.Now;
             db.Entry(quest).State = EntityState.Added;
             db.SaveChanges();
-            return View("Index");
+            return RedirectToAction("Index","Home");
         }
         
         [HttpGet]
         public ActionResult List_Of_Quests() 
         {
-            var quests = from q in db.Quests
-                         select q;
-
+            var  quests = from q in db.Quests
+                             select q;
             List<SelectListItem> items = new List<SelectListItem>();
-            
-            
-foreach (var t in db.TypeOfQuest)
+                       
+            foreach (var t in db.TypeOfQuest)
             {
                 items.Add(new SelectListItem { Text = t.Title, Value = Convert.ToString(t.Id) });
             }
@@ -61,7 +64,49 @@ foreach (var t in db.TypeOfQuest)
             
             return View(quests);
         }
+
+        [HttpGet]
+        public ActionResult List_Of_Quests2(string Condition) 
+        {
+            var   quests = from q in db.Quests
+                             where q.Type==Condition.ToString()
+                             select q;
+            List<SelectListItem> items = new List<SelectListItem>();
+                        
+            foreach (var t in db.TypeOfQuest)
+            {
+                items.Add(new SelectListItem { Text = t.Title, Value = Convert.ToString(t.Id) });
+            }
+            
+            ViewData["QuestTypes"] = items;
+            
+            return View(quests);
+        }
+
+        public ActionResult Quest_Detail(int? id) 
+        {
+            IQueryable<Quest> qu = from q in db.Quests
+                          where q.Id == id
+                          select q;
+            Quest quest = qu.First();
+            return View(quest);
+        }
         
+        public ActionResult Check_Answear(Quest quest )
+        {
+            var TrueQuest = from q in db.Quests
+                            where q.Id == quest.Id
+                            select q.Answear;
+            if (TrueQuest.First() == quest.Answear)
+            {
+                ViewBag.Message = "Отличная работа!";
+                return View("TrueAnswear");
+            }
+            else {
+                ViewBag.Message = "Вы ошиблись... Попробуйте снова ;-)";
+                return Redirect("FalseAnswear");
+            }
+        }
         
 
 

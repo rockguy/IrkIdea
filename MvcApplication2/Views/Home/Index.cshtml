@@ -1,6 +1,8 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "Index";
 }
+
 
 <div class="left-side">
     <div>
@@ -13,10 +15,14 @@
 <div class="right-side">
     <div>
         <ul> 
-        @foreach (var t in ViewBag.Types)
+            <li>@Html.ActionLink("Все квесты","List_Of_Quests","Home")</li>
+        @foreach (var t in ViewData["Types"] as IEnumerable<Queste.Models.TypeOfQuest>)
         {
-            <li>@t.Title  
+            <li>@Html.ActionLink(Convert.ToString(t.Title), "List_Of_Quests2", "Home", new {Condition = t.Title},null)</li>
         }
             </ul>
     </div>
 </div>
+
+
+

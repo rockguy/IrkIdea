@@ -5,43 +5,41 @@
 }
 
 <h2>List_Of_Quests</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div class="central-side">
 <table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Owner)
+            №
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>        
         <th>
             @Html.DisplayNameFor(model => model.Title)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
+        @if (HttpContext.Current.User.IsInRole("Администратор")) { 
         <th>
-            @Html.DisplayNameFor(model => model.Question)
+            Удалить
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Answear)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateOfCreation)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Type)
-        </th>
-        <th></th>
+        }
     </tr>
 
 @if (Model != null)
 {
+    int i =0;
     foreach (var item in Model)
     {
+        i++;
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Owner)
+            @i
+            @Html.Hidden("id",item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Title)
@@ -49,25 +47,20 @@
         <td>
             @Html.DisplayFor(modelItem => item.Description)
         </td>
+               
         <td>
-            @Html.DisplayFor(modelItem => item.Question)
+            @Html.ActionLink("Подробнее", "Quest_Detail", "Home", new { id = @item.Id }, null)
+            
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Answear)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateOfCreation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Type)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-        </td>
+        @if (HttpContext.Current.User.IsInRole("Администратор"))
+        {
+            <td>
+                @Html.ActionLink("Удалить", "DeleteQuest", "Home", new { id = @item.Id }, null)
+            </td>
+        }
     </tr>
     }
 }
 
 </table>
+</div>

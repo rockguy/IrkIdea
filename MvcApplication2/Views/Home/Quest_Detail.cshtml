@@ -1,0 +1,47 @@
+﻿@model Queste.Models.Quest
+
+@{
+    ViewBag.Title = "Quest_Detail";
+}
+
+<h2>Quest_Detail</h2>
+<h3>@ViewBag.Message</h3>
+<div class="central-side">
+    <table>
+        <tr>
+            <td>Тип</td>
+            <td> @Model.TypeOfQuest</td>
+        </tr>
+        <tr>
+            <td> Название</td>
+            <td> @Model.Title</td>
+        </tr>
+        <tr>
+            <td> Описание</td>
+            <td> @Model.Description</td>
+        </tr>
+        <tr>
+            <td> Вопрос</td>
+            <td> @Model.Question</td>
+        </tr>
+        <tr>
+            <td> Ответ</td>
+            <td>@using (Html.BeginForm("Check_Answear", "Home", FormMethod.Get))
+                {
+                 @Html.EditorFor(model => model.Answear);<br>
+                <input type="submit" value="Отправить ответ" />
+                @Html.Hidden("Id", Model.Id);
+                @Html.Hidden("url", Request.Url.AbsolutePath);
+              
+                }
+            
+            </td>
+        </tr>
+    
+    </table>
+    
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

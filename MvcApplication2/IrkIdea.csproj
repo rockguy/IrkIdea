@@ -239,6 +239,8 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Home\New_Quest.cshtml" />
     <Content Include="Views\Home\List_Of_Quests.cshtml" />
+    <Content Include="Views\Home\Quest_Detail.cshtml" />
+    <Content Include="Views\Home\TrueAnswear.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
