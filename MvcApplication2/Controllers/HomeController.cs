@@ -68,19 +68,12 @@ namespace Queste.Controllers
         [HttpGet]
         public ActionResult List_Of_Quests2(string Condition) 
         {
+            
             var   quests = from q in db.Quests
-                             where q.Type==Condition.ToString()
+                             where q.Type==Condition
                              select q;
             List<SelectListItem> items = new List<SelectListItem>();
-                        
-            foreach (var t in db.TypeOfQuest)
-            {
-                items.Add(new SelectListItem { Text = t.Title, Value = Convert.ToString(t.Id) });
-            }
-            
-            ViewData["QuestTypes"] = items;
-            
-            return View(quests);
+            return View("List_Of_Quests", quests);
         }
 
         public ActionResult Quest_Detail(int? id) 
@@ -107,7 +100,17 @@ namespace Queste.Controllers
                 return Redirect("FalseAnswear"); 
             }
         }
-        
+
+        public ActionResult DeleteQuest(Quest quest) 
+        {
+            var Quest = from q in db.Quests
+                            where q.Id == quest.Id
+                            select q.Answear;
+
+            db.Entry(quest).State = EntityState.Deleted;
+            db.SaveChanges();
+            return Redirect(Request.UrlReferrer.ToString());
+        }
 
 
         [Authorize(Roles = "admin")]

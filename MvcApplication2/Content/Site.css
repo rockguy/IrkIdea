@@ -197,16 +197,53 @@ legend {
     font-weight: bold;
 }
 
-textarea {
-    min-height: 75px;
-}
 
 .editor-label {
-    margin: 1em 0 0 0;
+    margin:20px;
+    font-size:x-large;
 }
 
 .editor-field {
     margin: 0.5em 0 0 0;
+    font-size:x-large;
+    height:auto;
+    margin:20px;
+}
+
+input[type=text] {
+height:auto;
+width:40%;
+font-size:x-large;
+}
+input[type=email] {
+height:auto;
+width:40%;
+font-size:x-large;
+}
+input[type=password] {
+height:auto;
+width:40%;
+font-size:x-large;
+}
+
+input[type=submit] {
+    font-size:x-large;
+    height:auto;
+}
+select {
+    text-align:center;
+    align-content:center;
+    align-items:center;
+    height:auto;
+    width:40%;
+font-size:x-large;
+}
+textarea {
+    height:auto;
+    width:40%;
+font-size:x-large;
+min-height:30px;
+
 }
 
 
